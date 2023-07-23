@@ -1,0 +1,35 @@
+//imports for BufferedReader
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+//import for Scanner and other utility classes
+import java.util.*;
+
+// Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+       
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
+        Arrays.sort(arr);
+        int j=n-1,i=0;
+        while(i<n&&j>=0){
+            if(arr[i]+arr[j]==k){
+                if(i!=j){
+                System.out.println("YES");
+                return;
+                }
+            }
+            if(arr[i]+arr[j]<k)
+                i++;
+            else
+                j--;
+        }
+        System.out.println("NO");
+    }
+}
